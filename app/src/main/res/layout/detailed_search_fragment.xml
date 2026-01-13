@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/detailed_search_fragment">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="si.f5.e_yama.connpassclient.ui.main.MainViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detailed_search_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/app_name"
+                android:background="@color/purple_500"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:titleTextColor="#FFFFFF"/>
+        <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:checkedButton="@+id/radioButtonAnd"
+                android:orientation="horizontal" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/radioGroup" android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+                android:layout_marginTop="60dp">
+            <RadioButton
+                    android:text="@string/detailed_search_and"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:checked="@={viewModel.searchModeAnd}"
+                    android:layout_height="50dp" android:id="@+id/radioButtonAnd"
+            />
+            <RadioButton
+                    android:text="@string/detailed_search_or"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="50dp" android:id="@+id/radioButtonOr"
+            />
+        </RadioGroup>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/detailed_search_keywords" android:text="@={viewModel.keyword}"
+                android:id="@+id/editTextKeywords"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:minHeight="48dp"
+                android:layout_marginTop="4dp" app:layout_constraintHorizontal_bias="0.0"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/detailed_search_from" android:text="@={viewModel.from}"
+                android:id="@+id/editTextFrom"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/editTextKeywords" android:minHeight="48dp"
+                app:layout_constraintHorizontal_bias="0.0"/>
+        <TextView
+                android:text="@string/detailed_search_prefectures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textViewPrefectures"
+                app:layout_constraintStart_toStartOf="@+id/editTextFrom"
+                app:layout_constraintTop_toBottomOf="@+id/editTextFrom" android:layout_marginTop="8dp"/>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp" android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPrefectures"
+                app:layout_constraintBottom_toBottomOf="parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/checkBoxesPrefectures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+                    tools:ignore="UselessLeaf">
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

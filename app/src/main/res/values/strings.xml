@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ConnpassClient</string>
+    <string name="temp">temp text</string>
+    <string name="search_hint">input keyword</string>
+    <string name="search_icon">🔎︎</string>
+
+    <string name="detailed_search">Detailed Search</string>
+
+    <string name="detailed_search_and">AND</string>
+    <string name="detailed_search_or">OR</string>
+    <string name="detailed_search_keywords">keywords</string>
+    <string name="detailed_search_from">from(yyyymm)</string>
+    <string name="detailed_search_prefectures">都道府県</string>
+
+    <string name="detail_title">Title</string>
+    <string name="detail_description">Description</string>
+    <string name="detail_url">Event URL</string>
+    <string name="detail_hashtag">HashTag</string>
+    <string name="detail_date">Date</string>
+</resources>
